@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { LazyHomeRoutingModule } from './lazy-home-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+
+import { ScrollingModule } from '@angular/cdk/scrolling'
 import { ChartsModule } from 'ng2-charts';
 
 
@@ -14,7 +16,7 @@ import { ChartsModule } from 'ng2-charts';
   imports: [
     CommonModule,
     LazyHomeRoutingModule,
-    ScrollDispatchModule,
+    ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
     ChartsModule
