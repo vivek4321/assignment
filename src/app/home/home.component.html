@@ -1,8 +1,8 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <cdk-virtual-scroll-viewport [itemSize]="5">
+            <div class="col-sm-6">            
+                <cdk-virtual-scroll-viewport [itemSize]="50" class="cdl-scroll-viewport" autosize>
                     <table>
                         <thead>
                             <tr>
@@ -14,7 +14,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *cdkVirtualFor="let person of personArray">
+                            <tr *cdkVirtualFor="let person of personArray" class="cdk-scroll-item">
                                 <td>{{person.firstName}}</td>
                                 <td>
                                     {{person.lastName}}

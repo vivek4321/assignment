@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class DataServiceService {
   constructor() { }
 
   getData(){
-    return [
+    return of([
       {
         "_id": "5db5dba8ffa8fb67abe3ab93",
         "firstName": "Ryan Church",
@@ -141,6 +142,6 @@ export class DataServiceService {
         "lastName": "Jeanne Bell",
         "age": 33
       }
-    ]
+    ]);
   }
 }
