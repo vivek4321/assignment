@@ -1,0 +1,58 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <cdk-virtual-scroll-viewport [itemSize]="5">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td (click)="sortType('first')">First Name</td>
+                                <td (click)="sortType('last')">Last Name</td>
+                                <td>Age</td>
+                                <td>Delete</td>
+                                <td>Edit</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *cdkVirtualFor="let person of personArray">
+                                <td>{{person.firstName}}</td>
+                                <td>
+                                    {{person.lastName}}
+                                </td>
+                                <td>
+                                    {{person.age}}
+                                </td>
+                                <td><button type="button" class="btn btn-danger"
+                                        (click)="deletePerswon(person._id)">Delete</button></td>
+                                <td><button type="button" class="btn btn-success"
+                                        (click)="editPerson(person._id)">Edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </cdk-virtual-scroll-viewport>
+
+                <hr />
+                <h3>Save</h3>
+
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">First Name</label>
+                        <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName"
+                            name="firstName" #firstName="ngModel">
+                        <label for="name">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName"
+                            name="lastName" #lastName="ngModel">
+                        <label for="name">Age</label>
+                        <input type="text" class="form-control" id="age" required [(ngModel)]="model.age" name="age"
+                            #age="ngModel">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+
+            </div>
+            <div class="col-sm-6">
+                <app-bar-chart [data]=personArray></app-bar-chart>
+            </div>
+        </div>
+    </div>
+</div>
