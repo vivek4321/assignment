@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: 'home', component: HomeComponent},
+  {path: 'home',  loadChildren: () => import('../app/lazy-home/lazy-home.module').then(module => module.LazyHomeModule)},
   {path: 'login', component: LoginComponent}
 ];
 

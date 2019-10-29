@@ -10,7 +10,7 @@ import { Component, OnInit, ChangeDetectorRef, SimpleChanges, DoCheck } from '@a
 })
 export class HomeComponent implements OnInit {
 
-  personArray: any = [];
+  personArray:any = [];
   model = new Person(1, '', '', '');
   chartData = [0, 0, 0];
   tempIndex = 997878;
@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(private data: DataServiceService, private cd: ChangeDetectorRef, private chartDataService: ChartDataService) { }
 
   ngOnInit() {
-    this.personArray = [...this.data.getData()];
+    this.data.getData().subscribe( data => {
+      this.personArray = [... data];
+    });
     this.caluclateForChartData();
     this.chartDataService.changeMessage(this.chartData);
   }
